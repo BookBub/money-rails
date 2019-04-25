@@ -65,17 +65,17 @@ module MoneyRails
       end
 
       def decimal_mark
-        currency.decimal_mark || DEFAULTS[:decimal_mark]
+        @_decimal_mark ||= lookup(:decimal_mark)
       end
 
       def thousands_separator
-        currency.thousands_separator || DEFAULTS[:thousands_separator]
+        @_thousands_separator ||= lookup(:thousands_separator)
       end
 
       # TODO: This is supporting legacy behaviour where a symbol can come from a i18n locale,
       #       however practical implications of that are most likely non-existent
       def symbol
-        currency.symbol
+        @_symbol ||= lookup(:symbol) || currency.symbol
       end
 
       def abs_raw_value
