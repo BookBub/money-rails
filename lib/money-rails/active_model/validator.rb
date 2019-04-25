@@ -65,11 +65,11 @@ module MoneyRails
       end
 
       def decimal_mark
-        currency.decimal_mark || DEFAULTS[decimal_mark]
+        currency.decimal_mark || DEFAULTS[:decimal_mark]
       end
 
       def thousands_separator
-        currency.thousands_separator || DEFAULTS[thousands_separator]
+        currency.thousands_separator || DEFAULTS[:thousands_separator]
       end
 
       # TODO: This is supporting legacy behaviour where a symbol can come from a i18n locale,
